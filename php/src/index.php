@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>IMPORTANT</title>
+  <title>Random cat iamges</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -40,17 +40,49 @@
       <input type="submit" value="Submit">
     </form>
   <?php else : ?>
-    <h1>Random cat image</h1>
     <?php
     $sql = "SELECT * FROM mysql.important_cat_images ORDER BY RAND() LIMIT 1";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     ?>
     <img src="<?= $row['source']; ?>" />
-    <p><?= $row['description']; ?></p>
+    <h1><?= $row['description']; ?></h1>
     <br />
-    <a href="/?cat=new">Add new cat image</a>
+    <a href="/?cat=new">Add new</a>
   <?php endif; ?>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: black;
+    }
+
+    img {
+      width: min(90vw, 30rem);
+      height: min(90vw, 30rem);
+      object-fit: contain;
+      border: 2px solid white;
+      padding: 1rem;
+    }
+
+    h1 {
+      color: white;
+      font-family: sans-serif;
+      font-weight: 200;
+    }
+
+    a {
+      color: white;
+    }
+
+    form {
+      display: flex;
+      gap: 3px;
+      flex-direction: column;
+      width: min(90vw, 20rem);
+    }
+  </style>
 </body>
 
 </html>
