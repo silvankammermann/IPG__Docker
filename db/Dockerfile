@@ -15,6 +15,3 @@ COPY ./scripts/ /docker-entrypoint-initdb.d/
 
 # Expose the default MySQL port (3306) if necessary
 EXPOSE 3306
-
-# Start MariaDB when the container launches
-CMD ["mysqld"]
